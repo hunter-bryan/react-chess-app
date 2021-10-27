@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { Square } from "../Square/Square";
-import { Piece } from "../../components/Piece/Piece";
 
 const backRankPieces = [
 	"Rook",
@@ -15,6 +14,7 @@ const backRankPieces = [
 ];
 
 export const Board: React.FC = (props) => {
+
 	const initializeSquares = (): JSX.Element[] => {
 		let squares: JSX.Element[] = [];
 
@@ -86,7 +86,6 @@ export const Board: React.FC = (props) => {
 	return (
         <View>
             {renderSquares()}
-            <Piece/>
         </View>
     );
 };
