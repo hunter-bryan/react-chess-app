@@ -1,2 +1,2 @@
 # react-chess-app
-A simple chess game written with React Native
+A simple Chess.com inspired chess game written with React Native
