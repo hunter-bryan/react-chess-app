@@ -1,2 +1,2 @@
 # react-chess-app
-A simple Chess.com inspired chess game written with React Native
+(In progress) A simple Chess.com inspired chess game written with React Native. Bootstrapped using expo-cli.
