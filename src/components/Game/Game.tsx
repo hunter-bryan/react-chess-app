@@ -1,7 +1,7 @@
 import { ChessEngine } from "../../classes/ChessEngine";
 import { Piece } from "../../components/Piece/Piece";
 import React, { useRef, useState, useCallback, useEffect } from "react";
-import { View } from "react-native";
+import { Dimensions, View } from "react-native";
 import { Board } from "../Board/Board";
 import { CapturedPieces } from "../../components/CapturedPieces/CapturedPieces";
 import { GameState } from "../../containers/GameState/GameState";
@@ -28,12 +28,15 @@ export const Game: React.FC<IGameProps> = (props) => {
 	// 	//}
 	// }, [chessEngine.board]);
 
+    let {width} = Dimensions.get("window");
+
 	const renderPieces = useCallback(
 		() =>
 			board.map((row, i) =>
 				row.map((piece, j) => {
 					return piece ? (
 						<Piece
+                            size={width/8}
 							key={`${i}${j}`}
 							id={piece.getId()}
 							row={i}
@@ -56,8 +59,6 @@ export const Game: React.FC<IGameProps> = (props) => {
 
 			<Board />
 			{renderPieces()}
-
-			{chessEngine.printBoard()}
 		</View>
 	);
 };

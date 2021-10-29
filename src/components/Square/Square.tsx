@@ -21,12 +21,20 @@ export const Square: React.FC<ISquareProps> = ({
 	} = GameState.useContainer();
 
 	const [color, setColor] = useState<any>(lightSquare ? "white" : "#ab6829");
-	const [isSelected, setIsSelected] = useState<boolean>(false);
+	//const [isSelected, setIsSelected] = useState<boolean>(false);
 
     // This is how we highlight a square when we click on a piece
     useEffect(() => {
         if(selectedSquare && selectedSquare[0] === row && selectedSquare[1] === column) {
-            setIsSelected(true);
+            alert("Touched me")
+            setColor(
+                    "yellow"
+                );
+        } else if (!selectedSquare && targetSquare) {
+            alert("resetting")
+            setColor(lightSquare ? "white" : "#ab6829");
+        } else {
+            return;
         }
     }, [selectedSquare]);
 
@@ -43,13 +51,13 @@ export const Square: React.FC<ISquareProps> = ({
 			return;
 		} else if (!targetSquare) {
 			setColor(
-				isSelected ? (lightSquare ? "white" : "#ab6829") : "yellow"
+				"yellow"
 			);
-			setIsSelected((prev) => !prev);
+			//setIsSelected((prev) => !prev);
 			setTargetSquare([row, column]);
+            setSelectedSquare(null);
 		}
 	}, [
-		isSelected,
 		lightSquare,
 		selectedSquare,
 		targetSquare,
@@ -57,17 +65,11 @@ export const Square: React.FC<ISquareProps> = ({
 		setTargetSquare,
 	]);
 
-    useEffect(() => {
-        // setColor(
-        //     isSelected ? (lightSquare ? "white" : "#ab6829") : "yellow"
-        // );
-    }, [isSelected])
-
-	useEffect(() => {
-		if (!targetSquare) {
-			setIsSelected(false);
-		}
-	}, [targetSquare]);
+	// useEffect(() => {
+	// 	if (!targetSquare) {
+	// 		setIsSelected(false);
+	// 	}
+	// }, [targetSquare]);
 
 	return (
 		<View style={style} onTouchStart={handleTouch}>
