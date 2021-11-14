@@ -20,7 +20,7 @@ export const Square: React.FC<ISquareProps> = ({
 		setTargetSquare,
 	} = GameState.useContainer();
 
-	const [color, setColor] = useState<any>(lightSquare ? "white" : "#ab6829");
+	const [color, setColor] = useState<any>(lightSquare ? "white" : "#609e6d");
 	//const [isSelected, setIsSelected] = useState<boolean>(false);
 
     // This is how we highlight a square when we click on a piece

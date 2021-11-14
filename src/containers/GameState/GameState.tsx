@@ -5,7 +5,7 @@ import { ChessEngine } from "../../classes/ChessEngine";
 
 const useGameState = () => {
 	const [chessEngine] = useState<ChessEngine>(new ChessEngine());
-	const [player, setPlayer] = useState<string>("w");
+	const [player, setPlayer] = useState<string>('w');
 	const [board, setBoard] = useState<typeof chessEngine.board>(
 		chessEngine.board
 	);
